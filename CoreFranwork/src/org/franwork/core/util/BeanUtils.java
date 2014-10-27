@@ -243,7 +243,6 @@ public final class BeanUtils {
 	/**
      * Invoke Bean Method.
      *
-     * @author Frankie
      * @param beanObj
      * @param methodName
      * @param argTypes
@@ -292,7 +291,6 @@ public final class BeanUtils {
     /**
      * Get Bean Field Value.
      * 
-     * @author Frankie
      * @param beanObj
      * @param fieldName
      * @param ignoreError

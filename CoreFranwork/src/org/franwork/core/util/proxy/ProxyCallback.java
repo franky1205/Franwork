@@ -142,8 +142,8 @@ public class ProxyCallback implements MethodInterceptor {
 		} catch (Throwable ex) {
 			this.executeExceptionInterceptors(executedInterceptors.iterator(), proxyObj, proxyMethod, paramObjs, ex);
 		}
-		Collections.reverse(executedInterceptors);
-		this.executeAfterInterceptors(executedInterceptors.iterator(), proxyObj, proxyMethod, paramObjs, invokeResult);
+		this.executeAfterInterceptors(new ReverseIterator<InterceptorMethod>(executedInterceptors), 
+				proxyObj, proxyMethod, paramObjs, invokeResult);
 		isProxying.set(Boolean.FALSE);
 		return invokeResult;
 	}
@@ -208,5 +208,29 @@ public class ProxyCallback implements MethodInterceptor {
 				_logger.error(e.getMessage(), e);
 			}
 		}
+	}
+	
+	private static class ReverseIterator<T> implements Iterator<T> {
+
+	    private final List<T> list;
+	    private int position;
+
+	    public ReverseIterator(List<T> list) {
+	        this.list = list;
+	        this.position = list.size() - 1;
+	    }
+
+	    public boolean hasNext() {
+	        return position >= 0;
+	    }
+
+	    public T next() {
+	        return list.get(position--);
+	    }
+
+	    public void remove() {
+	        throw new UnsupportedOperationException();
+	    }
+
 	}
 }

@@ -17,19 +17,22 @@ import org.franwork.core.util.BeanUtils;
 public abstract class InterceptorMethod {
 	
 	/**
-	 * 
+	 * The class types constant array of intercepted before method.
 	 */
-	public static final Class<?>[] interceptBeforeMethodTypes = new Class<?>[]{Object.class, Method.class, Object[].class};
+	public static final Class<?>[] interceptBeforeMethodTypes = 
+			new Class<?>[]{Object.class, Method.class, Object[].class};
 	
 	/**
-	 * 
+	 * The class types constant array of intercepted after method.
 	 */
-	public static final Class<?>[] interceptAfterMethodTypes = new Class<?>[]{Object.class, Method.class, Object[].class, Object.class};
+	public static final Class<?>[] interceptAfterMethodTypes = 
+			new Class<?>[]{Object.class, Method.class, Object[].class, Object.class};
 	
 	/**
-	 * 
+	 * The class types constant array of intercepted exception handling method.
 	 */
-	public static final Class<?>[] interceptExceptionMethodTypes = new Class<?>[]{Object.class, Method.class, Object[].class, Throwable.class};
+	public static final Class<?>[] interceptExceptionMethodTypes = 
+			new Class<?>[]{Object.class, Method.class, Object[].class, Throwable.class};
 	
 	protected String interceptorName;
 
