@@ -8,6 +8,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jdk.version>1.5</jdk.version>
+    <poi.version>3.10-FINAL</poi.version>
   </properties>
   
   <build>
@@ -42,6 +43,18 @@
   		<artifactId>ant</artifactId>
   		<version>1.7.0</version>
   	</dependency>
+  	
+  	<!-- Apache POI -->
+  	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>${poi.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>${poi.version}</version>
+	</dependency>
   	
   	<!-- SLF4J Logging Utils -->
   	<dependency>
