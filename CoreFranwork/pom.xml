@@ -56,6 +56,13 @@
 		<artifactId>google-collections</artifactId>
 		<version>1.0</version>
 	</dependency>
+	<!-- Google Inc. Google-Gson -->
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.2.4</version>
+	</dependency>
+	
 	
 	<!-- OGNL 3.0.7 -->
 	<dependency>
