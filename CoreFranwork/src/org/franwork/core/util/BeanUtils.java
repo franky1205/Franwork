@@ -1,5 +1,6 @@
 package org.franwork.core.util;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -325,4 +327,50 @@ public final class BeanUtils {
         }
         return returnObj;
     }
+    
+    /**
+	 * Get all the methods in instance class type with the given annotation class.
+	 * 
+	 * @param instance
+	 * @param annotationClass
+	 * @return
+	 */
+	public static <T extends Annotation> List<Method> getAnnotatedMethods(Object instance, Class<T> annotationClass) {
+		return BeanUtils.getAnnotatedMethods(instance, annotationClass, null);
+	}
+	
+	/**
+	 * Get all the methods in instance class type with the given annotation class and 
+	 * method parameter types.
+	 * 
+	 * @param instance
+	 * @param annotationClass
+	 * @param methodParamTypes
+	 * @return
+	 */
+	public static <T extends Annotation> List<Method> getAnnotatedMethods(Object instance, 
+			Class<T> annotationClass, Class<?>[] methodParamTypes) {
+		if (annotationClass == null) {
+			throw new IllegalArgumentException("The given annotation class type is null.");
+		}
+		List<Method> methods = BeanUtils.getClassMethods(instance.getClass());
+		if (CollectionUtils.isEmpty(methods)) {
+			return methods;
+		}
+		List<Method> annotatedMethods = new LinkedList<Method>();
+		for (Method method : methods) {
+			T annotation = method.getAnnotation(annotationClass);
+			if (annotation == null) {
+				continue;
+			}
+			if (ArrayUtils.isEmpty(methodParamTypes) || 
+					Arrays.equals(method.getParameterTypes(), methodParamTypes)) {
+				annotatedMethods.add(method);
+				continue;
+			}
+			logger.warn("Method annotated with " + annotationClass.getName() + " is not " +
+					"match with " + Arrays.toString(methodParamTypes));
+		}
+		return annotatedMethods;
+	}
 }
