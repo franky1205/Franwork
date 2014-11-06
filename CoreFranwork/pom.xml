@@ -8,6 +8,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jdk.version>1.5</jdk.version>
+    <poi.version>3.10-FINAL</poi.version>
   </properties>
   
   <build>
@@ -30,6 +31,30 @@
   		<artifactId>commons-lang</artifactId>
   		<version>2.6</version>
   	</dependency>
+  	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+  	
+  	<!-- Apache Ant -->
+  	<dependency>
+  		<groupId>ant</groupId>
+  		<artifactId>ant</artifactId>
+  		<version>1.7.0</version>
+  	</dependency>
+  	
+  	<!-- Apache POI -->
+  	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>${poi.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>${poi.version}</version>
+	</dependency>
   	
   	<!-- SLF4J Logging Utils -->
   	<dependency>
@@ -38,19 +63,35 @@
 		<version>1.7.2</version>
 	</dependency>
 	
-	<!-- Google Inc. -->
+	<!-- Google Inc. Google-Collections -->
 	<dependency>
 		<groupId>com.google.collections</groupId>
 		<artifactId>google-collections</artifactId>
 		<version>1.0</version>
 	</dependency>
+	<!-- Google Inc. Google-Gson -->
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.2.4</version>
+	</dependency>
 	
+	
+	<!-- OGNL 3.0.7 -->
 	<dependency>
   		<groupId>ognl</groupId>
   		<artifactId>ognl</artifactId>
   		<version>3.0.7</version>
   	</dependency>
   	
+  	<!-- CGLIB 2.1_3 -->
+  	<dependency>
+  		<groupId>cglib</groupId>
+  		<artifactId>cglib</artifactId>
+  		<version>2.1_3</version>
+  	</dependency>
+  	
+  	<!-- JUnit 4 -->
   	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
