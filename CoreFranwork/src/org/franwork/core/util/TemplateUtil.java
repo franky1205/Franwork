@@ -46,6 +46,14 @@ public abstract class TemplateUtil {
      */
     public static final String FUNCTION_SUFFIX = "}";
 
+    /**
+     * Evaluate the template by given function object and Data bean.
+     * 
+     * @param functionObj
+     * @param dataBean
+     * @param template
+     * @return
+     */
     public static String evalTemplate(Object functionObj, Object dataBean, String template) {
         String evalResult = template;
         evalResult = TemplateUtil.evalFieldTemplate(dataBean, evalResult);
